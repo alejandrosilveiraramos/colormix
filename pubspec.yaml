@@ -1,0 +1,53 @@
+name: colormix
+description: A app to create silk colors.
+
+publish_to: "none"
+
+version: 1.0.0
+
+environment:
+  sdk: ">=2.19.6 <3.0.0"
+
+dependencies:
+  flutter_localizations:
+    sdk: flutter
+  flutter:
+    sdk: flutter
+  mask_text_input_formatter: ^2.4.0
+  shared_preferences: ^2.1.0
+  cpf_cnpj_validator: ^2.0.0
+  cupertino_icons: ^1.0.2
+  flutter_flavor: ^3.1.1
+  reactive_forms: ^14.1.0
+  intl: ^0.17.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_native_splash: ^2.2.19
+  flutter_lints: ^2.0.0
+  build_runner:
+  intl_utils:
+
+flutter_intl:
+  main_locale: en
+  enabled: true
+
+flutter_native_splash:
+  color: "#FF0047"
+  android: true
+  ios: true
+  android_12:
+    color: "#FF0047"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+
+  fonts:
+    - family: CircularStd
+      fonts:
+        - asset: assets/fonts/CircularStd-Medium.ttf
+        - asset: assets/fonts/CircularStd-Bold.ttf
