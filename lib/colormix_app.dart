@@ -22,7 +22,7 @@ class ColormixApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(
-        fontFamily: 'CircularStd',
+        fontFamily: 'Inter',
         primarySwatch: DefaultTheme.colors.tixSwatch,
         unselectedWidgetColor: DefaultTheme.colors.primary,
       ),
