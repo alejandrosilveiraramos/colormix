@@ -3,7 +3,7 @@
   "home": "Home",
   "newColor": "New color",
   "configuration": "Configuration",
-  "name": "Name",
-  "code": "Code",
-  "description": "description"
+  "name": "Name: {name}",
+  "code": "Code: {code}",
+  "description": "Description: {description}"
 }

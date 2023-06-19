@@ -21,11 +21,12 @@ class CardColor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(DefaultTheme.spacing.small),
       child: Column(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width * .45,
+            width:
+                MediaQuery.of(context).size.width * DefaultTheme.size.mdqCard,
             height: 220,
             decoration: BoxDecoration(
               color: DefaultTheme.colors.primary,
@@ -36,7 +37,8 @@ class CardColor extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.width * .15,
+                  height: MediaQuery.of(context).size.width *
+                      DefaultTheme.size.mdqBanner,
                   decoration: BoxDecoration(
                     color: colorBanner,
                     borderRadius: BorderRadius.only(
@@ -49,35 +51,33 @@ class CardColor extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: DefaultTheme.spacing.mSmall),
                 Flexible(
                   fit: FlexFit.loose,
                   child: Text(
                     colorName,
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: DefaultTheme.fontSize.mLarge,
                       fontWeight: FontWeight.bold,
                       color: DefaultTheme.colors.secondary,
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(height: 4),
                 Text(
                   colorCode,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: DefaultTheme.fontSize.normal,
                     color: DefaultTheme.colors.medium,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 4,
-          ),
+          SizedBox(height: DefaultTheme.spacing.xSmall),
           SizedBox(
-            width: MediaQuery.of(context).size.width * .45,
+            width:
+                MediaQuery.of(context).size.width * DefaultTheme.size.mdqCard,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -112,7 +112,8 @@ class CardColor extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: MediaQuery.of(context).size.height * 0.85,
+          height:
+              MediaQuery.of(context).size.height * DefaultTheme.size.mdqModal,
           decoration: BoxDecoration(
             color: DefaultTheme.colors.primary,
             borderRadius: BorderRadius.only(

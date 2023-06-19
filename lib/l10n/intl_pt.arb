@@ -3,7 +3,7 @@
   "home": "Tela principal",
   "newColor": "Nova cor",
   "configuration": "Configuração",
-  "name": "Nome",
-  "code": "Código",
-  "description": "Descrição"
+  "name": "Nome: {name}",
+  "code": "Código: {code}",
+  "description": "Descrição: {description}"
 }

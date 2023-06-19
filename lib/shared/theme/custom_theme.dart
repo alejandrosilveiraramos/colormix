@@ -16,14 +16,10 @@ class CustomSizes {
   CustomSizes._privateConstructor();
   static final CustomSizes instance = CustomSizes._privateConstructor();
 
-  double get formItemMinHeight => 44;
-  double get buttonWithoutIcon => 51;
-  double get formItemMaxHeight => 70;
-  double get smallCircle => 24;
-  double get smallIcon => 36;
+  double get mdqBanner => .12;
+  double get mdqCard => .45;
+  double get mdqModal => 0.85;
   double get largeCircle => 40;
-  double get square => 100;
-  double get largeImageSquare => 148;
 }
 
 class CustomElevation {
@@ -31,7 +27,7 @@ class CustomElevation {
   static final CustomElevation instance = CustomElevation._privateConstructor();
 
   double get none => 0;
-  double get small => 4;
+  double get small => 5;
   double get normal => 8;
 }
 
