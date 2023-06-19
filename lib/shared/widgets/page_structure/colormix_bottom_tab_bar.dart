@@ -1,3 +1,4 @@
+import 'package:colormix/generated/l10n.dart';
 import 'package:colormix/shared/routes.dart';
 import 'package:colormix/shared/theme/custom_theme.dart';
 import 'package:flutter/material.dart';
@@ -72,17 +73,17 @@ class _ColormixBottomTabBarState extends State<ColormixBottomTabBar> {
     return [
       {
         Keys.icon: Icons.home_rounded,
-        Keys.label: 'Tela principal',
+        Keys.label: S.of(context).home,
         Keys.route: AppRoutes.home,
       },
       {
         Keys.icon: Icons.add_circle,
-        Keys.label: 'Nova cor',
+        Keys.label: S.of(context).newColor,
         Keys.route: AppRoutes.home,
       },
       {
         Keys.icon: Icons.settings_rounded,
-        Keys.label: 'Configuração',
+        Keys.label: S.of(context).configuration,
         Keys.route: AppRoutes.colorInfo,
       },
     ];

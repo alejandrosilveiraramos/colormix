@@ -1,3 +1,9 @@
 {
-  "@@locale": "en"
+  "@@locale": "en",
+  "home": "Home",
+  "newColor": "New color",
+  "configuration": "Configuration",
+  "name": "Name",
+  "code": "Code",
+  "description": "description"
 }

@@ -1,3 +1,9 @@
 {
-  "@@locale": "pt"
+  "@@locale": "pt",
+  "home": "Tela principal",
+  "newColor": "Nova cor",
+  "configuration": "Configuração",
+  "name": "Nome",
+  "code": "Código",
+  "description": "Descrição"
 }
