@@ -6,27 +6,55 @@ class ColorDataMock {
     return [
       ColorData(
         color: Colors.amber,
-        name: 'Amber',
+        name: 'Yellow Amber',
         code: '322533',
-        decription: 'Lorem ipsum dolor sit amet, consectetur',
+        description: 'Lorem ipsum dolor sit amet, consectetur',
+        composition: {
+          "Yellow Accent": ColorAndPercentage(
+            color: const Color(0xFFFFEE00),
+            percentage: 40,
+          ), // Custom color for Blue with 40% composition
+          "Yellow Canary": ColorAndPercentage(
+            color: const Color(0xFFFFB300),
+            percentage: 60,
+          ), // Custom color for Red with 60% composition
+        },
       ),
       ColorData(
         color: Colors.blue,
-        name: 'Blue',
+        name: 'Pure Blue',
         code: '192876',
-        decription: 'Lorem ipsum dolor sit amet, consectetur',
+        description: 'Lorem ipsum dolor sit amet, consectetur',
+        composition: {
+          "Blue": ColorAndPercentage(
+            color: const Color(0xFF0000FF),
+            percentage: 100,
+          ), // Blue color with 100% composition
+        },
       ),
       ColorData(
         color: Colors.red,
-        name: 'Red',
+        name: 'Pure Red',
         code: '456765',
-        decription: 'Lorem ipsum dolor sit amet, consectetur',
+        description: 'Lorem ipsum dolor sit amet, consectetur',
+        composition: {
+          "Red": ColorAndPercentage(
+            color: const Color(0xFFFF4848),
+            percentage: 100,
+          ), // Red color with 100% composition
+        },
       ),
       ColorData(
         color: Colors.black,
-        name: 'Black',
+        name: 'Blackout',
         code: '542789',
-        decription: 'Lorem ipsum dolor sit amet, consectetur',
+        description: 'Lorem ipsum dolor sit amet, consectetur',
+        composition: {
+          "Black": ColorAndPercentage(
+            color: const Color(0xFF000000),
+            percentage: 100,
+          ),
+        }, // Black has no custom composition
       ),
     ];
   }

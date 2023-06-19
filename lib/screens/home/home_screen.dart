@@ -24,7 +24,8 @@ class HomeScreen extends StatelessWidget {
                 colorBanner: colorData.color,
                 colorName: colorData.name,
                 colorCode: colorData.code,
-                colorDescription: colorData.decription,
+                colorDescription: colorData.description,
+                composition: colorData.composition,
               );
             }).toList(),
           ),

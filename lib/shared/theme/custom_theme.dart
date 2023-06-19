@@ -18,7 +18,7 @@ class CustomSizes {
 
   double get mdqBanner => .12;
   double get mdqCard => .45;
-  double get mdqModal => 0.85;
+  double get mdqModal => 0.70;
   double get largeCircle => 40;
 }
 

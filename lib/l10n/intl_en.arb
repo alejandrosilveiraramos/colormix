@@ -5,5 +5,6 @@
   "configuration": "Configuration",
   "name": "Name: {name}",
   "code": "Code: {code}",
-  "description": "Description: {description}"
+  "description": "Description: {description}",
+  "composition": "Composition: "
 }

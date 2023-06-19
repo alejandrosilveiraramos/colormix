@@ -1,5 +1,6 @@
 import 'package:colormix/screens/color_info/color_info.dart';
 import 'package:colormix/screens/home/components/button_card.dart';
+import 'package:colormix/shared/models/color_data.dart';
 import 'package:colormix/shared/theme/custom_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ class CardColor extends StatelessWidget {
   final String colorName;
   final String colorCode;
   final String colorDescription;
+  final Map<String, ColorAndPercentage> composition;
 
   const CardColor({
     Key? key,
@@ -16,6 +18,7 @@ class CardColor extends StatelessWidget {
     required this.colorName,
     required this.colorCode,
     required this.colorDescription,
+    required this.composition,
   }) : super(key: key);
 
   @override
@@ -91,6 +94,7 @@ class CardColor extends StatelessWidget {
                         colorName: colorName,
                         colorCode: colorCode,
                         colorDescription: colorDescription,
+                        composition: composition,
                       ),
                     );
                   },
