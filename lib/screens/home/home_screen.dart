@@ -21,9 +21,10 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             children: colorDataList.map((colorData) {
               return CardColor(
-                bannerColor: colorData.color,
+                colorBanner: colorData.color,
                 colorName: colorData.name,
                 colorCode: colorData.code,
+                colorDescription: colorData.decription,
               );
             }).toList(),
           ),

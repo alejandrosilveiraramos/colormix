@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.5,
-          child: Image.asset(DefaultTheme.assets.logo),
+          child: Image.asset(DefaultTheme.assets.splash),
         ),
       ),
     );

@@ -1,18 +1,21 @@
+import 'package:colormix/screens/color_info/color_info.dart';
 import 'package:colormix/screens/home/components/button_card.dart';
 import 'package:colormix/shared/theme/custom_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CardColor extends StatelessWidget {
-  final Color bannerColor;
+  final Color colorBanner;
   final String colorName;
   final String colorCode;
+  final String colorDescription;
 
   const CardColor({
     Key? key,
-    required this.bannerColor,
+    required this.colorBanner,
     required this.colorName,
     required this.colorCode,
+    required this.colorDescription,
   }) : super(key: key);
 
   @override
@@ -35,7 +38,7 @@ class CardColor extends StatelessWidget {
                 Container(
                   height: MediaQuery.of(context).size.width * .15,
                   decoration: BoxDecoration(
-                    color: bannerColor,
+                    color: colorBanner,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(
                         DefaultTheme.borderRadius.medium,
@@ -81,7 +84,15 @@ class CardColor extends StatelessWidget {
                 ButtonCard(
                   icon: Icons.info_outlined,
                   clickAction: () {
-                    modalColor(context, const Text('alo'));
+                    modalColor(
+                      context,
+                      ColorInfo(
+                        infoColor: colorBanner,
+                        colorName: colorName,
+                        colorCode: colorCode,
+                        colorDescription: colorDescription,
+                      ),
+                    );
                   },
                 ),
                 ButtonCard(
