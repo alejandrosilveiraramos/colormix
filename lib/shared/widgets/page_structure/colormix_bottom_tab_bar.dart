@@ -21,7 +21,7 @@ class _ColormixBottomTabBarState extends State<ColormixBottomTabBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Colors.white,
+      backgroundColor: DefaultTheme.colors.primary,
       unselectedItemColor: DefaultTheme.colors.medium,
       fixedColor: DefaultTheme.colors.secondary,
       selectedFontSize: DefaultTheme.fontSize.small,
@@ -83,7 +83,7 @@ class _ColormixBottomTabBarState extends State<ColormixBottomTabBar> {
       {
         Keys.icon: Icons.settings_rounded,
         Keys.label: 'Configuração',
-        Keys.route: AppRoutes.home,
+        Keys.route: AppRoutes.colorInfo,
       },
     ];
   }

@@ -1,4 +1,6 @@
+import 'package:colormix/screens/home/components/button_card.dart';
 import 'package:colormix/shared/theme/custom_theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CardColor extends StatelessWidget {
@@ -35,10 +37,12 @@ class CardColor extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: bannerColor,
                     borderRadius: BorderRadius.only(
-                      topLeft:
-                          Radius.circular(DefaultTheme.borderRadius.medium),
-                      topRight:
-                          Radius.circular(DefaultTheme.borderRadius.medium),
+                      topLeft: Radius.circular(
+                        DefaultTheme.borderRadius.medium,
+                      ),
+                      topRight: Radius.circular(
+                        DefaultTheme.borderRadius.medium,
+                      ),
                     ),
                   ),
                 ),
@@ -74,37 +78,44 @@ class CardColor extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * .22,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.info_outlined),
-                    color: DefaultTheme.colors.secondary,
-                    iconSize: 40,
-                  ),
+                ButtonCard(
+                  icon: Icons.info_outlined,
+                  clickAction: () {
+                    modalColor(context, const Text('alo'));
+                  },
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width * .22,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.invert_colors),
-                    color: DefaultTheme.colors.secondary,
-                    iconSize: 40,
-                  ),
+                ButtonCard(
+                  icon: Icons.invert_colors,
+                  clickAction: () {},
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
+    );
+  }
+
+  void modalColor(BuildContext context, Widget child) {
+    showCupertinoModalPopup(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: MediaQuery.of(context).size.height * 0.85,
+          decoration: BoxDecoration(
+            color: DefaultTheme.colors.primary,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(
+                DefaultTheme.borderRadius.medium,
+              ),
+              topRight: Radius.circular(
+                DefaultTheme.borderRadius.medium,
+              ),
+            ),
+          ),
+          child: child,
+        );
+      },
     );
   }
 }
