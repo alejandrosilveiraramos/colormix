@@ -113,10 +113,10 @@ class CustomColors {
   Color get darkGrey => const Color(0xFF666666);
   Color get dark => const Color(0xFF323F38);
 
-  Color get sucessfully => const Color(0xFF00FF00);
-  Color get harmony => const Color(0xFF208FFF);
-  Color get alert => const Color(0xFFFFFF00);
-  Color get warning => const Color(0xFFFF0000);
+  Color get sucessfully => const Color(0xFFaed2ab);
+  Color get harmony => const Color(0xFF9cc6f3);
+  Color get alert => const Color(0xFFf6d08b);
+  Color get warning => const Color(0xFFc295d0);
 
   MaterialColor get tixSwatch => MaterialColor(
         primary.value,

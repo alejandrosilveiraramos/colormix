@@ -138,22 +138,19 @@ class ColorInfo extends StatelessWidget {
                           ),
                           SizedBox(height: DefaultTheme.spacing.xllarge),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               ButtonCard(
-                                btnWidth:
-                                    MediaQuery.of(context).size.width * 0.4,
-                                icon: Icons.edit,
-                                clickAction: () {},
-                              ),
-                              ButtonCard(
-                                btnWidth:
-                                    MediaQuery.of(context).size.width * 0.4,
                                 icon: Icons.invert_colors,
                                 clickAction: () {},
                               ),
+                              SizedBox(width: DefaultTheme.spacing.normal),
+                              ButtonCard(
+                                icon: Icons.edit,
+                                clickAction: () {},
+                              ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                     )

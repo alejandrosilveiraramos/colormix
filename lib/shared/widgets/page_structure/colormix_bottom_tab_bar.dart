@@ -79,12 +79,12 @@ class _ColormixBottomTabBarState extends State<ColormixBottomTabBar> {
       {
         Keys.icon: Icons.add_circle,
         Keys.label: S.of(context).newColor,
-        Keys.route: AppRoutes.home,
+        Keys.route: AppRoutes.colorForm,
       },
       {
         Keys.icon: Icons.settings_rounded,
         Keys.label: S.of(context).configuration,
-        Keys.route: AppRoutes.colorInfo,
+        Keys.route: AppRoutes.home,
       },
     ];
   }

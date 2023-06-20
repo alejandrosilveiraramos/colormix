@@ -18,16 +18,20 @@ class HomeScreen extends StatelessWidget {
       child: BaseScreen(
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Row(
-            children: colorDataList.map((colorData) {
-              return CardColor(
-                colorBanner: colorData.color,
-                colorName: colorData.name,
-                colorCode: colorData.code,
-                colorDescription: colorData.description,
-                composition: colorData.composition,
-              );
-            }).toList(),
+          child: Column(
+            children: [
+              Row(
+                children: colorDataList.map((colorData) {
+                  return CardColor(
+                    colorBanner: colorData.color,
+                    colorName: colorData.name,
+                    colorCode: colorData.code,
+                    colorDescription: colorData.description,
+                    composition: colorData.composition,
+                  );
+                }).toList(),
+              ),
+            ],
           ),
         ),
       ),

@@ -1,11 +1,12 @@
 import 'package:colormix/shared/theme/custom_theme.dart';
 import 'package:flutter/material.dart';
 
-class ButtonCard extends StatelessWidget {
+class ButtonCard extends StatefulWidget {
   final double? btnWidth;
   final double? iconSize;
-  final Function() clickAction;
+  final Function()? clickAction;
   final IconData icon;
+  final bool disabled;
 
   const ButtonCard({
     Key? key,
@@ -13,33 +14,41 @@ class ButtonCard extends StatelessWidget {
     this.iconSize,
     required this.icon,
     required this.clickAction,
+    this.disabled = false,
   }) : super(key: key);
 
+  @override
+  State<ButtonCard> createState() => _ButtonCardState();
+}
+
+class _ButtonCardState extends State<ButtonCard> {
   @override
   Widget build(BuildContext context) {
     const double defaultBtnWidth = 0.22;
     const double defaultIconSize = 50;
 
     return Container(
-      width: btnWidth ?? MediaQuery.of(context).size.width * defaultBtnWidth,
+      width: widget.btnWidth ??
+          MediaQuery.of(context).size.width * defaultBtnWidth,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
           DefaultTheme.borderRadius.medium,
         ),
       ),
       child: ElevatedButton(
-        onPressed: clickAction,
+        onPressed: widget.disabled ? null : widget.clickAction,
         style: ElevatedButton.styleFrom(
-          backgroundColor: DefaultTheme.colors.primary,
+          backgroundColor:
+              widget.disabled ? Colors.grey : DefaultTheme.colors.harmony,
           shape: RoundedRectangleBorder(
             borderRadius:
                 BorderRadius.circular(DefaultTheme.borderRadius.medium),
           ),
         ),
         child: Icon(
-          icon,
+          widget.icon,
           color: DefaultTheme.colors.secondary,
-          size: iconSize ?? defaultIconSize,
+          size: widget.iconSize ?? defaultIconSize,
         ),
       ),
     );
