@@ -24,11 +24,12 @@ class _ColormixBottomTabBarState extends State<ColormixBottomTabBar> {
     return BottomNavigationBar(
       backgroundColor: DefaultTheme.colors.primary,
       unselectedItemColor: DefaultTheme.colors.medium,
-      fixedColor: DefaultTheme.colors.secondary,
+      selectedItemColor: DefaultTheme.colors.secondary,
       selectedFontSize: DefaultTheme.fontSize.small,
       unselectedFontSize: DefaultTheme.fontSize.small,
       type: BottomNavigationBarType.fixed,
       onTap: (itemSelected) => _onItemTapped(context, itemSelected),
+      currentIndex: _getCurrentIndex(context),
       items: getItems(context)
           .asMap()
           .map((index, item) {
@@ -60,13 +61,26 @@ class _ColormixBottomTabBarState extends State<ColormixBottomTabBar> {
 
   void _onItemTapped(BuildContext ctx, int index) {
     final item = getItems(ctx)[index];
-    final previousRoute = ModalRoute.of(ctx)!.settings.name;
+    final currentRoute = ModalRoute.of(ctx)!.settings.name;
 
-    if (previousRoute == item[Keys.route]) return;
+    if (currentRoute == item[Keys.route]) return;
 
     setState(() {
       Navigator.of(ctx).pushNamed(item[Keys.route]);
     });
+  }
+
+  int _getCurrentIndex(BuildContext context) {
+    final currentRoute = ModalRoute.of(context)!.settings.name;
+    final items = getItems(context);
+
+    for (int i = 0; i < items.length; i++) {
+      if (items[i][Keys.route] == currentRoute) {
+        return i;
+      }
+    }
+
+    return 0;
   }
 
   List<Map<String, dynamic>> getItems(BuildContext context) {

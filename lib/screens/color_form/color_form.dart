@@ -1,6 +1,6 @@
-import 'package:colormix/screens/color_form/generate_color_form.dart';
+import 'package:colormix/screens/color_form/form_keys_constants.dart';
+import 'package:colormix/screens/color_form/generated_form.dart';
 import 'package:colormix/screens/home/base_screen.dart';
-import 'package:colormix/screens/home/components/button_card.dart';
 import 'package:colormix/shared/theme/custom_theme.dart';
 import 'package:colormix/shared/widgets/page_structure/colormix_bottom_tab_bar.dart';
 import 'package:colormix/shared/widgets/page_structure/colormix_page.dart';
@@ -17,98 +17,119 @@ class ColorForm extends StatefulWidget {
 class _ColorFormState extends State<ColorForm> {
   final form = FormGroup(
     {
-      FormColor.color: FormControl<String>(
-        validators: [Validators.required],
-        value: '',
+      FormColorsKeys.colors.form: FormGroup(
+        {
+          FormColorsKeys.colors.color: FormControl<String>(
+            validators: [Validators.required],
+            value: '',
+          ),
+          FormColorsKeys.colors.name: FormControl<String>(
+            validators: [Validators.required],
+            value: '',
+          ),
+          FormColorsKeys.colors.code: FormControl<String>(
+            validators: [Validators.required],
+            value: '',
+          ),
+          FormColorsKeys.colors.description: FormControl<String>(
+            validators: [Validators.required],
+            value: '',
+          ),
+          FormColorsKeys.colors.numberOfColorsFields: FormControl<String>(
+            validators: [Validators.required],
+            value: '',
+          ),
+        },
       ),
-      FormColor.name: FormControl<String>(
-        validators: [Validators.required],
-        value: '',
-      ),
-      FormColor.code: FormControl<String>(
-        validators: [Validators.required],
-        value: '',
-      ),
-      FormColor.description: FormControl<String>(
-        validators: [Validators.required],
-        value: '',
-      ),
-      FormColor.numberOfColors: FormControl<String>(
-        validators: [Validators.required],
-        value: '',
+      FormColorsKeys.colorsComposition.form: FormGroup(
+        {
+          FormColorsKeys.colorsComposition.colorsFields:
+              FormArray<FormGroup>([]),
+        },
       ),
     },
   );
 
   @override
   Widget build(BuildContext context) {
+    late final FormGroup colorForm =
+        form.control(FormColorsKeys.colors.form) as FormGroup;
+
     return ReactiveForm(
-      formGroup: form,
+      formGroup: colorForm,
       child: ColormixPage(
         bottomNavigationBar: const ColormixBottomTabBar(),
         child: BaseScreen(
           child: SingleChildScrollView(
-            child: ReactiveFormConsumer(
-              builder: (context, formGroup, child) {
-                return Column(
-                  children: [
-                    ...form.controls.entries.map((entry) {
-                      final key = entry.key;
-                      final control = entry.value as FormControl<String>;
-
-                      return Padding(
-                        padding: EdgeInsets.all(DefaultTheme.spacing.normal),
-                        child: ReactiveTextField<String>(
-                          formControl: control,
-                          decoration: InputDecoration(
-                            labelText: key,
-                          ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(DefaultTheme.spacing.normal),
+                  child: Column(
+                    children: [
+                      ReactiveTextField(
+                        formControlName: FormColorsKeys.colors.color,
+                        decoration: const InputDecoration(
+                          labelText: 'Color',
                         ),
-                      );
-                    }).toList(),
-                    SizedBox(
-                      height: DefaultTheme.spacing.xxlarge,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                              right: DefaultTheme.spacing.normal),
-                          child: ButtonCard(
-                            icon: Icons.done,
-                            clickAction: form.valid
+                      ),
+                      ReactiveTextField(
+                        formControlName: FormColorsKeys.colors.name,
+                        decoration: const InputDecoration(
+                          labelText: 'Name',
+                        ),
+                      ),
+                      ReactiveTextField(
+                        formControlName: FormColorsKeys.colors.code,
+                        decoration: const InputDecoration(
+                          labelText: 'Code',
+                        ),
+                      ),
+                      ReactiveTextField(
+                        formControlName: FormColorsKeys.colors.description,
+                        decoration: const InputDecoration(
+                          labelText: 'Description',
+                        ),
+                      ),
+                      ReactiveTextField(
+                        formControlName:
+                            FormColorsKeys.colors.numberOfColorsFields,
+                        decoration: const InputDecoration(
+                          labelText: 'Number of colors',
+                        ),
+                      ),
+                      ReactiveFormConsumer(
+                        builder: (context, form, child) {
+                          return ElevatedButton(
+                            onPressed: form.valid
                                 ? () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => GenerateColorForm(
-                                          form: form,
-                                        ),
-                                      ),
+                                    showModalBottomSheet(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return GeneratedForm(
+                                          numberOfFields: int.parse(
+                                            colorForm
+                                                .control(FormColorsKeys.colors
+                                                    .numberOfColorsFields)
+                                                .value,
+                                          ),
+                                        );
+                                      },
                                     );
                                   }
-                                : null,
-                            disabled: !form.valid,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              },
+                                : null, // Disable the button if the form is invalid
+                            child: const Text('Next'),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),
       ),
     );
   }
-}
-
-class FormColor {
-  static const color = 'Color';
-  static const name = 'Name';
-  static const code = 'Code';
-  static const description = 'Description';
-  static const numberOfColors = 'Number of colors';
 }

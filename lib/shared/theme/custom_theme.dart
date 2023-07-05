@@ -118,7 +118,7 @@ class CustomColors {
   Color get alert => const Color(0xFFf6d08b);
   Color get warning => const Color(0xFFc295d0);
 
-  MaterialColor get tixSwatch => MaterialColor(
+  MaterialColor get mixSwatch => MaterialColor(
         primary.value,
         <int, Color>{
           50: light,

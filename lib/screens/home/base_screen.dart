@@ -9,7 +9,7 @@ class BaseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: double.infinity,
-      color: DefaultTheme.colors.medium,
+      color: DefaultTheme.colors.lightGrey,
       child: SingleChildScrollView(
         child: child,
       ),

@@ -11,7 +11,7 @@ class ColormixApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tixfy Catraca',
+      title: 'Colormix',
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         S.delegate,
@@ -23,7 +23,7 @@ class ColormixApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(
         fontFamily: 'Inter',
-        primarySwatch: DefaultTheme.colors.tixSwatch,
+        primarySwatch: DefaultTheme.colors.mixSwatch,
         unselectedWidgetColor: DefaultTheme.colors.primary,
       ),
       initialRoute: AppRoutes.splash,
