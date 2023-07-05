@@ -1,3 +1,4 @@
+import 'package:colormix/screens/home/components/button_card.dart';
 import 'package:colormix/shared/theme/custom_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -18,6 +19,16 @@ class _GeneratedFormState extends State<GeneratedForm> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Composition of color'),
+        actions: [
+          Padding(
+            padding: EdgeInsets.all(DefaultTheme.spacing.normal),
+            child: ButtonCard(
+              iconSize: 20,
+              icon: Icons.done_rounded,
+              clickAction: () {},
+            ),
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: widget.numberOfFields,

@@ -1,6 +1,7 @@
 import 'package:colormix/screens/color_form/form_keys_constants.dart';
 import 'package:colormix/screens/color_form/generated_form.dart';
 import 'package:colormix/screens/home/base_screen.dart';
+import 'package:colormix/screens/home/components/button_card.dart';
 import 'package:colormix/shared/theme/custom_theme.dart';
 import 'package:colormix/shared/widgets/page_structure/colormix_bottom_tab_bar.dart';
 import 'package:colormix/shared/widgets/page_structure/colormix_page.dart';
@@ -61,71 +62,76 @@ class _ColorFormState extends State<ColorForm> {
         bottomNavigationBar: const ColormixBottomTabBar(),
         child: BaseScreen(
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(DefaultTheme.spacing.normal),
-                  child: Column(
-                    children: [
-                      ReactiveTextField(
-                        formControlName: FormColorsKeys.colors.color,
-                        decoration: const InputDecoration(
-                          labelText: 'Color',
-                        ),
-                      ),
-                      ReactiveTextField(
-                        formControlName: FormColorsKeys.colors.name,
-                        decoration: const InputDecoration(
-                          labelText: 'Name',
-                        ),
-                      ),
-                      ReactiveTextField(
-                        formControlName: FormColorsKeys.colors.code,
-                        decoration: const InputDecoration(
-                          labelText: 'Code',
-                        ),
-                      ),
-                      ReactiveTextField(
-                        formControlName: FormColorsKeys.colors.description,
-                        decoration: const InputDecoration(
-                          labelText: 'Description',
-                        ),
-                      ),
-                      ReactiveTextField(
-                        formControlName:
-                            FormColorsKeys.colors.numberOfColorsFields,
-                        decoration: const InputDecoration(
-                          labelText: 'Number of colors',
-                        ),
-                      ),
-                      ReactiveFormConsumer(
-                        builder: (context, form, child) {
-                          return ElevatedButton(
-                            onPressed: form.valid
-                                ? () {
-                                    showModalBottomSheet(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return GeneratedForm(
+            child: Padding(
+              padding: EdgeInsets.all(DefaultTheme.spacing.normal),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  ReactiveTextField(
+                    formControlName: FormColorsKeys.colors.color,
+                    decoration: const InputDecoration(
+                      labelText: 'Color',
+                    ),
+                  ),
+                  ReactiveTextField(
+                    formControlName: FormColorsKeys.colors.name,
+                    decoration: const InputDecoration(
+                      labelText: 'Name',
+                    ),
+                  ),
+                  ReactiveTextField(
+                    formControlName: FormColorsKeys.colors.code,
+                    decoration: const InputDecoration(
+                      labelText: 'Code',
+                    ),
+                  ),
+                  ReactiveTextField(
+                    formControlName: FormColorsKeys.colors.description,
+                    decoration: const InputDecoration(
+                      labelText: 'Description',
+                    ),
+                  ),
+                  ReactiveTextField(
+                    formControlName: FormColorsKeys.colors.numberOfColorsFields,
+                    decoration: const InputDecoration(
+                      labelText: 'Number of colors',
+                    ),
+                  ),
+                  ReactiveFormConsumer(
+                    builder: (context, form, child) {
+                      return ButtonCard(
+                        iconSize: 20,
+                        icon: Icons.done_rounded,
+                        clickAction: form.valid
+                            ? () {
+                                showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return SizedBox(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              .6, // Set the desired height here
+                                      child: SafeArea(
+                                        child: GeneratedForm(
                                           numberOfFields: int.parse(
                                             colorForm
                                                 .control(FormColorsKeys.colors
                                                     .numberOfColorsFields)
                                                 .value,
                                           ),
-                                        );
-                                      },
+                                        ),
+                                      ),
                                     );
-                                  }
-                                : null, // Disable the button if the form is invalid
-                            child: const Text('Next'),
-                          );
-                        },
-                      ),
-                    ],
+                                  },
+                                );
+                              }
+                            : null,
+                      );
+                    },
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
