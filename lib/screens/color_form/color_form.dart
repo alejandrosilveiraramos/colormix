@@ -109,17 +109,12 @@ class _ColorFormState extends State<ColorForm> {
                                   context: context,
                                   builder: (BuildContext context) {
                                     return SizedBox(
-                                      height:
-                                          MediaQuery.sizeOf(context).height *
-                                              .6, // Set the desired height here
+                                      height: MediaQuery.sizeOf(context)
+                                              .height *
+                                          .85, // Set the desired height here
                                       child: SafeArea(
                                         child: GeneratedForm(
-                                          numberOfFields: int.parse(
-                                            colorForm
-                                                .control(FormColorsKeys.colors
-                                                    .numberOfColorsFields)
-                                                .value,
-                                          ),
+                                          form: form,
                                         ),
                                       ),
                                     );
